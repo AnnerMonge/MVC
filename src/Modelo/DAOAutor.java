@@ -12,8 +12,8 @@ import java.util.*;
  */
 public class DAOAutor {
     //Metodos para insertar datos en la BD
-    public Autor Insertar(String cedula, String nombres, String apellidos,
-            String email, java.sql.Date FechaNac) {
+    public Autor Insertar( String nombres, String apellidos,
+            String email,String cedula, java.sql.Date FechaNac) {
         String transaccion = "INSERT INTO Autor (nombres,apellidos,email,cedula,fechaNac) VALUES ('"
                 + nombres + "','"
                 + apellidos + "','"
@@ -34,9 +34,9 @@ public class DAOAutor {
             String transaccion = "UPDATE Autor SET nombres='"
                     + nombres + "', apellidos='"
                     + Apellidos + "', email= '"
-                    + email + "', fechaNac='"
-                    + FechaNac + "', cedula='"
-                    + cedula + "' WHERE id_autor="
+                    + email + "',  cedula='"
+                    + cedula  + "', fechaNac='"
+                    + FechaNac+ "' WHERE id_autor="
                     + id;
             
             return new DataBase().Actualizar(transaccion);

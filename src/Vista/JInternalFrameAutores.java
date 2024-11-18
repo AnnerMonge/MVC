@@ -141,6 +141,12 @@ public class JInternalFrameAutores extends javax.swing.JInternalFrame {
         jLabel6.setForeground(new java.awt.Color(0, 0, 102));
         jLabel6.setText("Email");
 
+        jTextFechaNac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFechaNacActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -180,26 +186,23 @@ public class JInternalFrameAutores extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel4))
+                        .addComponent(jLabel4)
+                        .addGap(28, 28, 28)
+                        .addComponent(jLabel6))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addComponent(jTextApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jTextCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel5))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jTextFechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(33, 33, 33)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jTextEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(124, Short.MAX_VALUE))
+                    .addComponent(jLabel5)
+                    .addComponent(jTextFechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(130, Short.MAX_VALUE))
         );
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Transacciones", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14), new java.awt.Color(0, 0, 102))); // NOI18N
@@ -341,7 +344,7 @@ public class JInternalFrameAutores extends javax.swing.JInternalFrame {
                 //Convierte de String a Date
             Date fech=Date.valueOf(FecN); //Usar formato de fecha: yyyy-mm-dd
             //Objeto para acceder al metodo Insetar de DAOAutor
-            Autor au=new DAOAutor().Insertar(ced, nomb, apell, ema,  fech);
+            Autor au=new DAOAutor().Insertar( nomb, apell, ema,ced,fech);
           
                 JOptionPane.showMessageDialog(rootPane,"Registro agregado");
            }catch (Exception e){
@@ -383,7 +386,7 @@ obtenerDatos(); //llama a este metodo para que se muestre el nuevo
            int id=Integer.parseInt((String)this.jTableAutor.getValueAt(fila, 0).toString());
            String nom=(String)this.jTableAutor.getValueAt(fila,1);
            String ape=(String)this.jTableAutor.getValueAt(fila,2);
-           String corr=(String)this.jTableAutor.getValueAt(fila,3);
+           String ema=(String)this.jTableAutor.getValueAt(fila,3);
            String ced=(String)this.jTableAutor.getValueAt(fila,4); 
            Date fec=Date.valueOf((String)this.jTableAutor.getValueAt(fila, 5).toString());                        
           
@@ -392,7 +395,7 @@ obtenerDatos(); //llama a este metodo para que se muestre el nuevo
            jTextidAutor.setText(""+id);
            jTextNombres.setText(nom);
            jTextApellidos.setText(ape);
-           jTextEmail.setText(corr);
+           jTextEmail.setText(ema);
            jTextCedula.setText(ced);
            jTextFechaNac.setText(String.valueOf(fec));
            }catch(NumberFormatException e){
@@ -412,12 +415,16 @@ obtenerDatos(); //llama a este metodo para que se muestre el nuevo
     }//GEN-LAST:event_jBActualizarActionPerformed
 
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
-        // TODO add your handling code here:
+        // TODO add                 
     }//GEN-LAST:event_jBBuscarActionPerformed
 
     private void jTextBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextBuscarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextBuscarActionPerformed
+
+    private void jTextFechaNacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFechaNacActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFechaNacActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
