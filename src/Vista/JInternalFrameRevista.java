@@ -128,19 +128,22 @@ public class JInternalFrameRevista extends javax.swing.JInternalFrame {
 
         jPanel3.add(jScrollPane1);
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Registrar / Actualizar", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14), new java.awt.Color(0, 0, 102))); // NOI18N
+        setClosable(true);
 
-        jLabel1.setForeground(new java.awt.Color(0, 0, 102));
+        jPanel2.setBackground(new java.awt.Color(0, 102, 153));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Registrar / Actualizar", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
+
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("numero");
 
-        jLabel2.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("titulo");
 
         jLabel3.setForeground(new java.awt.Color(0, 0, 102));
 
         jLabel4.setForeground(new java.awt.Color(0, 0, 102));
 
-        jLabel5.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("HoraVenta");
 
         jTextnumero.addActionListener(new java.awt.event.ActionListener() {
@@ -163,13 +166,13 @@ public class JInternalFrameRevista extends javax.swing.JInternalFrame {
 
         jTextprecio.setText("0");
 
-        jLabel6.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("ayo");
 
-        jLabel7.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("precio");
 
-        jLabel8.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("issn");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -239,7 +242,8 @@ public class JInternalFrameRevista extends javax.swing.JInternalFrame {
                 .addGap(93, 93, 93))
         );
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Transacciones", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14), new java.awt.Color(0, 0, 102))); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(0, 102, 153));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Transacciones", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 
         jBAgregarR.setForeground(new java.awt.Color(0, 0, 102));
         jBAgregarR.setText("Agregar");
@@ -329,7 +333,8 @@ public class JInternalFrameRevista extends javax.swing.JInternalFrame {
                 .addContainerGap(112, Short.MAX_VALUE))
         );
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Revista/Registradas", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14), new java.awt.Color(0, 0, 102))); // NOI18N
+        jPanel4.setBackground(new java.awt.Color(0, 102, 153));
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Revista/Registradas", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
         jPanel4.setLayout(new javax.swing.OverlayLayout(jPanel4));
 
         jTableRevista.setModel(new javax.swing.table.DefaultTableModel(

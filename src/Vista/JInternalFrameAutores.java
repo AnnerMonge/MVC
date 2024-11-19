@@ -103,7 +103,11 @@ public class JInternalFrameAutores extends javax.swing.JInternalFrame {
         jBBuscar = new javax.swing.JButton();
         jTextBuscar = new javax.swing.JTextField();
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, " Autores Registrados", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14), new java.awt.Color(0, 0, 102))); // NOI18N
+        setBackground(new java.awt.Color(0, 0, 153));
+        setClosable(true);
+
+        jPanel3.setBackground(new java.awt.Color(0, 102, 153));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, " Autores Registrados", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
         jPanel3.setLayout(new javax.swing.OverlayLayout(jPanel3));
 
         jTableAutor.setModel(new javax.swing.table.DefaultTableModel(
@@ -121,24 +125,25 @@ public class JInternalFrameAutores extends javax.swing.JInternalFrame {
 
         jPanel3.add(jScrollPane1);
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Registrar / Actualizar", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14), new java.awt.Color(0, 0, 102))); // NOI18N
+        jPanel2.setBackground(new java.awt.Color(0, 102, 153));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Registrar / Actualizar", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 
-        jLabel1.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("ID");
 
-        jLabel2.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombres");
 
-        jLabel3.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Cédula");
 
-        jLabel4.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Apellidos");
 
-        jLabel5.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("FechaNac");
 
-        jLabel6.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Email");
 
         jTextFechaNac.addActionListener(new java.awt.event.ActionListener() {
@@ -205,7 +210,8 @@ public class JInternalFrameAutores extends javax.swing.JInternalFrame {
                 .addContainerGap(130, Short.MAX_VALUE))
         );
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Transacciones", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14), new java.awt.Color(0, 0, 102))); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(0, 102, 153));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Transacciones", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 
         jBAgregar.setForeground(new java.awt.Color(0, 0, 102));
         jBAgregar.setText("Agregar");

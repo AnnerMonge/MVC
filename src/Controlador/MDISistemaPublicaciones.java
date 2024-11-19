@@ -46,6 +46,7 @@ setTitle("Publicaciones");//Agrega el titulo al MDI
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        desktopPane.setBackground(new java.awt.Color(204, 204, 255));
         desktopPane.setForeground(new java.awt.Color(0, 51, 204));
 
         fileMenu.setMnemonic('f');
