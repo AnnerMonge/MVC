@@ -65,5 +65,30 @@ public class DAORevista {
         
         return new DataBase().Actualizar(transaccion);
     }
+     public List<Revista> BuscarRevista(String titulo) {
+    // Corregir la consulta SQL para incluir el nombre de la tabla
+    String transaccion = "SELECT * FROM Revista WHERE titulo LIKE '%" + titulo + "%'";
+
+    // Llama al método Listar de DataBase.java para ejecutar la consulta
+    List<Map<String, Object>> registros = new DataBase().Listar(transaccion);
+
+    // Lista para almacenar los productos encontrados
+    List<Revista> Revistas = new ArrayList<>();
+
+    // Recorrer los registros devueltos por la consulta y construir objetos Producto
+    for (Map<String, Object> registro : registros) {
+        Revista rev = new Revista(
+                (int) registro.get("numero"), // Asegurarse de que coincide con la columna en la tabla
+                (String) registro.get("titulo"),
+                (int) registro.get("ayo"),
+                (String) registro.get("issn"),
+                (float) registro.get("precio"),
+                (java.sql.Time) registro.get("fechaNac")
+        );
+        Revistas.add(rev);
+    }
+ // Retornar la lista de productos encontrados
+    return Revistas;
+   }
 }
 

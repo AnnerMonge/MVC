@@ -471,6 +471,50 @@ public class JInternalFrameRevista extends javax.swing.JInternalFrame {
 
     private void jBBuscarRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarRActionPerformed
         // TODO add your handling code here:
+          // Obtiene el texto ingresado en el campo de búsqueda
+        String terminoBusqueda = jTextBuscarR.getText().trim();
+
+        // Valida que el campo de búsqueda no esté vacío
+        if (terminoBusqueda.isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Ingrese un término para buscar."); // Muestra un mensaje al usuario si el campo está vacío
+            return; // Finaliza el método
+        }
+
+        try {
+            // Llama al método BuscarProducto en DAOProductos para obtener la lista de productos que coinciden con el término de búsqueda
+            List<Revista> Revistas = new DAORevista().BuscarRevista(terminoBusqueda);
+
+            // Valida si hay resultados en la lista de pro
+            if (Revistas.isEmpty()) {
+                JOptionPane.showMessageDialog(rootPane, "No se encontraron Autores con el término: " + terminoBusqueda); // Informa al usuario que no hubo coincidencias
+                return; // Finaliza el método
+            }
+
+            // Crea un modelo para la tabla con las columnas especificadas
+            DefaultTableModel modelo = new DefaultTableModel();
+            String[] columnas = {"numero", "titulo", "ayo", "issn", "precio","Horaventa"};
+            modelo.setColumnIdentifiers(columnas); // Configura los nombres de las columnas en el modelo
+
+            // Itera sobre los productos encontrados y los agrega como filas al modelo
+            for (Revista rev : Revistas) {
+                String[] renglon = {
+                    Integer.toString(rev.getNumero()),
+                    rev.getTitulo(),// Convierte el ID de Autor a String
+                    Integer.toString(rev.getAyo()), // Obtiene el nombre del autor
+                    rev.getIssn(),
+                   Float.toString(rev.getPrecio()),
+                    rev.getHoraventa().toString() // Convierte la fechaNac  a String
+                };
+                modelo.addRow(renglon); // Agrega la fila al modelo
+            }
+
+            // Actualiza la tabla con el modelo que contiene los datos de los productos encontrados
+            jTableRevista.setModel(modelo);
+
+        } catch (Exception e) {
+            e.printStackTrace(); // Muestra detalles del error en la consola
+            JOptionPane.showMessageDialog(rootPane, "Ocurrió un error al realizar la búsqueda."); // Notifica al usuario sobre el error
+        } 
     }//GEN-LAST:event_jBBuscarRActionPerformed
 
     private void jTextBuscarRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextBuscarRActionPerformed

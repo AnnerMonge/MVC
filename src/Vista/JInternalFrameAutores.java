@@ -421,7 +421,50 @@ obtenerDatos(); //llama a este metodo para que se muestre el nuevo
     }//GEN-LAST:event_jBActualizarActionPerformed
 
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
-        // TODO add                 
+        // Obtiene el texto ingresado en el campo de búsqueda
+        String terminoBusqueda = jTextBuscar.getText().trim();
+
+        // Valida que el campo de búsqueda no esté vacío
+        if (terminoBusqueda.isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Ingrese un término para buscar."); // Muestra un mensaje al usuario si el campo está vacío
+            return; // Finaliza el método
+        }
+
+        try {
+            // Llama al método BuscarProducto en DAOProductos para obtener la lista de productos que coinciden con el término de búsqueda
+            List<Autor> Autores = new DAOAutor().BuscarAutor(terminoBusqueda);
+
+            // Valida si hay resultados en la lista de pro
+            if (Autores.isEmpty()) {
+                JOptionPane.showMessageDialog(rootPane, "No se encontraron Autores con el término: " + terminoBusqueda); // Informa al usuario que no hubo coincidencias
+                return; // Finaliza el método
+            }
+
+            // Crea un modelo para la tabla con las columnas especificadas
+            DefaultTableModel modelo = new DefaultTableModel();
+            String[] columnas = {"id_autor", "nombres", "apellidos", "email", "cedula","fechaNac"};
+            modelo.setColumnIdentifiers(columnas); // Configura los nombres de las columnas en el modelo
+
+            // Itera sobre los productos encontrados y los agrega como filas al modelo
+            for (Autor au : Autores) {
+                String[] renglon = {
+                    Integer.toString(au.getId_autor()),
+                    au.getCedula(),// Convierte el ID de Autor a String
+                    au.getNombres(), // Obtiene el nombre del autor
+                    au.getApellidos(),
+                    au.getEmail(),
+                    au.getFechaNac().toString() // Convierte la fechaNac  a String
+                };
+                modelo.addRow(renglon); // Agrega la fila al modelo
+            }
+
+            // Actualiza la tabla con el modelo que contiene los datos de los productos encontrados
+            jTableAutor.setModel(modelo);
+
+        } catch (Exception e) {
+            e.printStackTrace(); // Muestra detalles del error en la consola
+            JOptionPane.showMessageDialog(rootPane, "Ocurrió un error al realizar la búsqueda."); // Notifica al usuario sobre el error
+        }               
     }//GEN-LAST:event_jBBuscarActionPerformed
 
     private void jTextBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextBuscarActionPerformed
