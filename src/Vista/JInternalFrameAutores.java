@@ -458,7 +458,7 @@ obtenerDatos(); //llama a este metodo para que se muestre el nuevo
                 modelo.addRow(renglon); // Agrega la fila al modelo
             }
 
-            // Actualiza la tabla con el modelo que contiene los datos de los productos encontrados
+            // Actualiza la tabla con el modelo que contiene los datos del los autores  encontrados
             jTableAutor.setModel(modelo);
 
         } catch (Exception e) {
